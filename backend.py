@@ -17,3 +17,22 @@ def create_db():
     ''')
     conn.commit()
     conn.close()
+
+def log_memory_data():
+    conn = sqlite3.connect('memory_data.db')
+    c = conn.cursor()
+    while True:
+        memory_info = psutil.virtual_memory()
+        timestamp = int(time.time())
+        total = memory_info.total // 1024 // 1024
+        free = memory_info.available // 1024 // 1024
+        used = total - free
+        c.execute('''
+            INSERT INTO memory (timestamp, total, free, used) VALUES (?, ?, ?, ?)
+        ''', (timestamp, total, free, used))
+        conn.commit()
+        time.sleep(60)  # wait for 1 minute
+
+if __name__ == '__main__':
+    create_db()
+    log_memory_data()
