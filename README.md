@@ -7,6 +7,9 @@ Installation:
     prerequisites: Python 3.8 or higher
     pip (Python package manager)
 
-Returned JSON structure The API response consists of a list of JSON objects, each of which displays information about RAM memory usage over a specified time period. Each object contains the following fields:
+Returned JSON structure
+The API response consists of a list of JSON objects, each of which displays information about RAM memory usage over a specified time period. Each object contains the following fields:
 
-timestamp: the time when the information was recorded as a Unix timestamp (seconds since January 1, 1970). total: the total amount of RAM available in the system (in megabytes). free: The amount of RAM that is currently free and usable for applications (in MB). used: The amount of RAM memory that is being used by system programs and processes (in megabytes).
+timestamp: the time when the information was recorded as a Unix timestamp (seconds since January 1, 1970).
+total: the total amount of RAM available in the system (in megabytes). free: The amount of RAM that is currently free and usable for applications (in MB).
+used: The amount of RAM memory that is being used by system programs and processes (in megabytes).
